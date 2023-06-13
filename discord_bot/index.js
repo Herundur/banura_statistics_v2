@@ -9,12 +9,29 @@ client = new discord.Client({
         ]
 });
 
+const sqlite3 = require('sqlite3').verbose();
+const { closeDatabase } = require("./connectDatabase,js");
+const checkChannel = require("./checkFunctions/checkChannel");
+const checkUser = require("./checkFunctions/checkUser");
+const addMessage = require("./addMessage");
+
 client.on("messageCreate", async msg => {
+
+    await checkChannel(msg);
+    await checkUser(msg);
+    await addMessage(msg);
+    /*
     console.dir(msg);
-    const user = msg.guild.channels.cache.get(msg.channelId);
+    const user = msg.guild.members.cache.get(msg.author.id);
     const avatarURL = msg.guild.iconURL()
-    console.log(user)
+    console.log(user)*/
+    
+   closeDatabase();
 });
+
+
+
+
 
 client.on('ready', () => {
     console.log(`Bot is ready! Logged in as ${client.user.tag}`);
