@@ -1,4 +1,5 @@
-const { connectDatabase } = require(".././connectDatabase,js");
+const { connectDatabase } = require("./connectDatabase.js");
+const timestampToString = require("./timestampToString")
 
 async function checkUser (msg) {
 
@@ -21,9 +22,10 @@ async function checkUser (msg) {
     
         if (!exists) {
 
-            sql = "INSERT INTO users (id, picture, name, timestamp, bot) VALUES (?, ?, ?, ?, ?)";
+            sql = "INSERT INTO users (id, picture, name, date, bot) VALUES (?, ?, ?, ?, ?)";
+            userDate = timestampToString(user.joinedTimestamp);
 
-            db.run(sql, [user.id, user.user.displayAvatarURL(), user.user.username, user.joinedTimestamp, Number(user.user.bot)], (err) => {
+            db.run(sql, [user.id, user.user.displayAvatarURL(), user.user.username, userDate, Number(user.user.bot)], (err) => {
                 if (err) return console.error(err.message);
                     console.log(`Added User: ${user.user.username} to Users`)
             });

@@ -1,4 +1,5 @@
-const { connectDatabase } = require(".././connectDatabase,js");
+const { connectDatabase } = require("./connectDatabase.js");
+const timestampToString = require("./timestampToString")
 
 async function checkGuild (msg) {
 
@@ -21,9 +22,10 @@ async function checkGuild (msg) {
     
         if (!exists) {
 
-          sql = "INSERT INTO guilds (id, timestamp, member_count, name) VALUES (?, ?, ?, ?)";
+          sql = "INSERT INTO guilds (id, date, member_count, name) VALUES (?, ?, ?, ?)";
+          guildDate = timestampToString(guild.joinedTimestamp);
 
-          db.run(sql, [guild.id, guild.joinedTimestamp, guild.memberCount, guild.name], (err) => {
+          db.run(sql, [guild.id, guildDate, guild.memberCount, guild.name], (err) => {
             if (err) return console.error(err.message);
             console.log(`Added Guild: ${guild.name} to Guilds`)
           });

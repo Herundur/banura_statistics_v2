@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <title>Banura Statistics</title>
+        </head>
+    <body>
+        <h1>Banura Statistics</h1>
+        <p>Insgesamt gesendete Nachrichten: {{ messages_count_start_date[0] }}</p>
+        <p>Aufzeichungen gestartet am: {{ messages_count_start_date[1] }}</p>
+        <div>
+            <canvas id="myChart"></canvas>
+            <script>const placeholder = {{ placeholder }}</script>
+            <script src="{{ url_for('static', filename='js/myChart.js') }}"></script>
+        </div>
+    </body>
+</html>

@@ -1,4 +1,4 @@
-const { connectDatabase } = require(".././connectDatabase,js");
+const { connectDatabase } = require("./connectDatabase.js");
 const checkGuild = require("./checkGuild");
 
 async function checkChannel(msg) {

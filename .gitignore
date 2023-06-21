@@ -1,3 +1,5 @@
 node_modules
 .env
 database/statistics.db
+webserver/webserver_env
+webserver/__pycache__
