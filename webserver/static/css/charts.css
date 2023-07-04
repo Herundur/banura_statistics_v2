@@ -1,0 +1,22 @@
+.smallLine {
+    height: 100px;
+    width: 100%;
+}
+
+.smallBar {
+    height: 130px;
+    width: 100%;
+    margin-inline: 12px;
+}
+
+.channel_rangliste {
+    height: 165px;
+    width: 100%;
+    margin-inline: 12px;
+}
+
+.spieler_rangliste {
+    height: 330px;
+    width: 100%;
+    margin-inline: 12px;
+}

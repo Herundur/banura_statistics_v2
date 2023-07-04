@@ -1,0 +1,15 @@
+:root {
+    --main-bg: #121212;
+    --header-bg: rgba(255, 255, 255, 0.07);
+    --card-bg: rgba(255, 255, 255, 0.05);
+}
+
+body {
+    margin: 0px;
+    font-family: 'Readex Pro', sans-serif;
+    background-color: var(--main-bg);
+}
+
+header {
+    max-width: 100%;
+}

@@ -1,0 +1,66 @@
+#start-main-flexbox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 25px;
+    margin: 72px 35px 16px 35px;
+}
+
+#dashboard{
+    font-size: 21px;
+    font-weight: 300;
+    color: white;
+    opacity: 90%;
+}
+
+.select-wrapper {
+    width: 128px;
+    position: relative;
+}
+
+select {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    width: 100%;
+    height: 30px;
+    -moz-padding-start: calc(10px - 3px);
+    background: #232323;
+    color: #e3e3e3;
+    font-size: 11px;
+    font-weight: 400;
+    cursor: pointer;
+    border-radius: 50px;
+    padding-inline: 16px;
+}
+
+.select-wrapper::after {
+    content: "\f078"; /* Font Awesome chevron-down icon */
+    font-family: "Font Awesome 5 Free";
+    font-weight: 700;
+    font-size: 11px;
+    color: #e3e3e3;
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+select:focus {
+    outline: none;
+}
+
+
+select:hover {
+    cursor: pointer;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+select:focus::-ms-value {
+    background-color: transparent;
+}

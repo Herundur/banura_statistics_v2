@@ -4,16 +4,113 @@
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-stacked100@1.0.0"></script>
+            <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+            <script src="https://kit.fontawesome.com/a069de01db.js" crossorigin="anonymous"></script>
+            <link rel="preconnect" href="https://fonts.googleapis.com">
+            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+            <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500&display=swap" rel="stylesheet">
+            <link rel="stylesheet" href="../static/css/general.css">
+            <link rel="stylesheet" href="../static/css/header.css">
+            <link rel="stylesheet" href="../static/css/select.css">
+            <link rel="stylesheet" href="../static/css/cards.css">
+            <link rel="stylesheet" href="../static/css/charts.css">
+            <link rel="stylesheet" href="../static/css/footer.css">
+            <script src="../static/js/general.js"></script>
             <title>Banura Statistics</title>
         </head>
     <body>
-        <h1>Banura Statistics</h1>
-        <p>Insgesamt gesendete Nachrichten: {{ messages_count_start_date[0] }}</p>
-        <p>Aufzeichungen gestartet am: {{ messages_count_start_date[1] }}</p>
-        <div>
-            <canvas id="myChart"></canvas>
-            <script>const placeholder = {{ placeholder }}</script>
-            <script src="{{ url_for('static', filename='js/myChart.js') }}"></script>
-        </div>
+        <header>
+            <div id="header-flexbox">
+                <img id="logo" src="../static/images/logo.png">
+                <div class="search-wrapper">
+                    <form class="search-bar" action="/search" method="GET">
+                        <input type="text" id="search-input" name="query" placeholder="Nutzer suchen" />
+                    </form>
+                </div>
+                <span class="fa-brands fa-discord"></span>
+            </div>
+        </header>
+        <main>
+            <script>/* const geasmtLabebl = {{ geesamt}}}
+                        const gesamtData = {{gesamt.data}} 
+                        etc...
+                    */</script>
+            <div id="start-main-flexbox">
+                <h3 id="dashboard">Dashboard</h3>
+                <div class="select-wrapper">
+                    <select>
+                        <option value="option1" selected>Seit Beginn</option>
+                        <option value="option2">Letzte 30 Tage</option>
+                        <option value="option3">Letzte 7 Tage</option>
+                    </select>
+                </div>
+            </div>
+            <div class="cards-flexbox">
+                <div class="card">
+                    <h4>gesendete Nachrichten</h4>
+                    <h2>31.127</h2>
+                    <h5>+180</h5>
+                    <h6>vs vorherige 30 Tage</h6>
+                </div>
+                <div class="card">
+                    <h4>Nachrichten pro Tag</h4>
+                    <h3 class="average">127</h3>
+                    <div>
+                        <canvas id="nachrichten_pro_tag" class="smallLine"></canvas>
+                    </div>
+                    <script src="../static/js/nachrichten_pro_tag.js"></script>
+                </div>
+                <div class="card">
+                    <h4 class="big">Aktivität nach Wochentage</h4>
+                    <div>
+                        <canvas id="aktivität_nach_wochentage" class="smallBar"></canvas>
+                    </div>
+                    <script src="../static/js/aktivität_nach_wochentage.js"></script>
+                </div>
+                <div class="card">
+                    <h4 class="big">Aktivität nach Stunden</h4>
+                    <div>
+                        <canvas id="aktivität_nach_stunden" class="smallBar"></canvas>
+                    </div>
+                    <script src="../static/js/aktivität_nach_stunden.js"></script>
+                </div>
+                <div class="card">
+                    <h4>Leauge Of Legends Pings</h4>
+                    <h2>212</h2>
+                    <h5>+12</h5>
+                    <h6>vs vorherige 30 Tage</h6>
+                </div>
+                <div class="card cardChannelRangliste">
+                    <h4 class="big">Channel Rangliste</h4>
+                    <div>
+                        <canvas id="channel_rangliste" class="channel_rangliste"></canvas>
+                    </div>
+                    <script src="../static/js/channel_rangliste.js"></script>
+                </div>
+                <div class="card">
+                    <h4>Spieleranzahl</h4>
+                    <h2>90</h2>
+                    <h5>+2</h5>
+                    <h6>vs vorherige 30 Tage</h6>
+                </div>
+                <div class="card cardSpielerRangliste">
+                    <h4 class="big">Spieler Rangliste</h4>
+                    <div>
+                        <canvas id="spieler_rangliste" class="spieler_rangliste"></canvas>
+                    </div>
+                    <script src="../static/js/spieler_rangliste.js"></script>
+                </div>
+            </div>
+        </main>
+        <footer>
+            <div class="footer-flexbox">
+                <h5>Banura Statistcs 2023</h5>
+                <div class="icon-flexbox">
+                    <span class="fa-brands fa-discord"></span>
+                    <span class="fa-brands fa-github"></span> 
+                </div>
+            </div>
+        </footer>
     </body>
 </html>

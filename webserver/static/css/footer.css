@@ -1,0 +1,28 @@
+.footer-flexbox {
+    display: flex;
+    height: 48px;
+    background-color: var(--header-bg);
+    align-items: center;
+    margin: 0px;
+    margin-top: 24px;
+    padding-inline: 35px;
+    justify-content: space-between;
+    box-shadow: 0 -4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.footer-flexbox > h5 {
+    font-size: 11px;
+    color: white;
+    opacity: 90%;
+    font-weight: 400;
+}
+
+.fa-brands.fa-github {
+    font-size: 24px;
+    color: white;
+    opacity: 90%;
+    margin-left: 22px;
+}
+
+
+
