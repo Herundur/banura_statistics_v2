@@ -5,7 +5,12 @@ client = new discord.Client({
         [		
             discord.GatewayIntentBits.Guilds,
             discord.GatewayIntentBits.GuildMessages,
+            discord.GatewayIntentBits.GuildMembers,
             discord.GatewayIntentBits.MessageContent,
+        ],
+        partials:
+        [
+          discord.Partials.GuildMember,
         ]
 });
 
@@ -14,25 +19,28 @@ const { closeDatabase } = require("./database_related/connectDatabase.js");
 const checkChannel = require("./database_related/checkChannel");
 const checkUser = require("./database_related/checkUser");
 const addMessage = require("./database_related/addMessage");
+const updateUser = require("./database_related/updateUser");
 
 client.on("messageCreate", async msg => {
-
     await checkChannel(msg);
-    await checkUser(msg);
     await addMessage(msg);
-    
-    console.dir(msg);
-    /*
-    const user = msg.guild.members.cache.get(msg.author.id);
-    const avatarURL = msg.guild.iconURL()
-    console.log(user)*/
-    
    closeDatabase();
 });
 
+client.on('guildMemberAdd', async (member) => {
+  await checkUser(member);
+  closeDatabase();
+});
 
+client.on('guildMemberUpdate', async (oldMember, newMember) => {
+  await updateUser.nickname(oldMember, newMember);
+  closeDatabase();
+});
 
-
+client.on('userUpdate', async (oldMember, newMember) => {
+  await updateUser.avatar(oldMember, newMember);
+  closeDatabase();
+});
 
 client.on('ready', () => {
     console.log(`Bot is ready! Logged in as ${client.user.tag}`);

@@ -17,7 +17,8 @@ CREATE TABLE IF NOT EXISTS channels(
 CREATE TABLE IF NOT EXISTS users(
     id INTEGER NOT NULL,
     picture TEXT NOT NULL,
-    name TEXT NOT NULL,
+    username TEXT NOT NULL,
+    nickname TEXT,
     date TEXT NOT NULL,
     bot INTEGER NOT NULL,
     PRIMARY KEY(id)
@@ -29,6 +30,7 @@ CREATE TABLE IF NOT EXISTS messages(
     channel_id INTEGER NOT NULL,
     id INTEGER NOT NULL,
     date TEXT NOT NULL,
+    mention_role TEXT,
     PRIMARY KEY(number),
     FOREIGN KEY(channel_id) REFERENCES channels(id),
     FOREIGN KEY(author_id) REFERENCES users(id)
