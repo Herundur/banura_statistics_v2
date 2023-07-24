@@ -3,19 +3,15 @@ import sqlite3
 conn = None
 cur = None
 
-def connectDatabase():
-  global conn, cur
-  if conn is None:
-    conn = sqlite3.connect("../database/statistics.db")
-    cur = conn.cursor()
-  return conn, cur
-
-
-def closeDatabase():
+def open_db():
     global conn, cur
-    if conn: 
-        cur.close()
-        conn.close()
-        conn = None
-        cur = None
+    conn = sqlite3.connect("..\\database\\statistics.db", check_same_thread=False)
+    cur = conn.cursor()
+    print("Database successfully OPEND!")
+    return conn, cur
 
+def close_db():
+    global cur
+    cur.close()
+    conn.close()
+    print("Database successfully CLOSED!")

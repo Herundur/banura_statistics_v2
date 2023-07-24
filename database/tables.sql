@@ -1,7 +1,6 @@
 CREATE TABLE IF NOT EXISTS guilds(
     id INTEGER NOT NULL,
     date TEXT NOT NULL,
-    member_count INTEGER NOT NULL,
     name TEXT NOT NULL,
     PRIMARY KEY(id)
 );

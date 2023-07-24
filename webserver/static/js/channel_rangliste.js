@@ -4,12 +4,19 @@ const horizontalBarGradient = ctxChannelRangliste.getContext("2d").createLinearG
 horizontalBarGradient.addColorStop(0, "#3f8108");
 horizontalBarGradient.addColorStop(1, "#65d30e");
 
+channel_rangliste_chart_labels = []
+channel_rangliste_chart_values = []
+channel_rangliste_chart.forEach(element => {
+  channel_rangliste_chart_labels.push(element[0]);
+  channel_rangliste_chart_values.push(element[1]);
+});
+
 new Chart(ctxChannelRangliste, {
   type: 'bar',
   data: {
-    labels: ["teamspeak", "food", "suggestions", "videos", "spam"],
+    labels: channel_rangliste_chart_labels,
     datasets: [{
-      data: [100, 90, 80, 70, 60],
+      data: channel_rangliste_chart_values,
       backgroundColor: horizontalBarGradient,
       fill: true,
       borderRadius: [

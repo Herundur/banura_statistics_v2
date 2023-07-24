@@ -6,14 +6,19 @@ verticalBarGradient.addColorStop(1, "#65d30e");
 
 Chart.register(ChartjsPluginStacked100.default)
 
-const inputAktivitätNachWochentage = [1000, 120, 320, 120, 322, 150, 750]
+aktivität_nach_wochentage_labels = []
+aktivität_nach_wochentage_values = []
+aktivität_nach_wochentage_chart.forEach(element => {
+  aktivität_nach_wochentage_labels.push(element[0]);
+  aktivität_nach_wochentage_values.push(element[1]);
+});
 
 new Chart(ctxAktivitätNachWochentage, {
   type: 'bar',
   data: {
-    labels: ["Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag", "Sonntag"],
+    labels: aktivität_nach_wochentage_labels,
     datasets: [{
-      data: inputAktivitätNachWochentage,
+      data: aktivität_nach_wochentage_values,
       backgroundColor: verticalBarGradient,
       fill: true,
       borderRadius: [
@@ -34,7 +39,7 @@ new Chart(ctxAktivitätNachWochentage, {
       }
     },
     {
-      data: getOpposite(inputAktivitätNachWochentage),
+      data: getOpposite(aktivität_nach_wochentage_values),
       backgroundColor: "rgba(255, 255, 255, 0.05)",
       borderRadius: [
         { topLeft: 5, topRight: 5, bottomLeft: 5, bottomRight: 5 },

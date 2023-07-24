@@ -1,11 +1,19 @@
 const ctxSpielerRangliste = document.getElementById('spieler_rangliste');
 
+spieler_rangliste_chart_labels = []
+spieler_rangliste_chart_values = []
+spieler_rangliste_chart.forEach(element => {
+  spieler_rangliste_chart_labels.push(element[0]);
+  spieler_rangliste_chart_values.push(element[1]);
+});
+
+
 new Chart(ctxSpielerRangliste, {
   type: 'bar',
   data: {
-    labels: ["Heredur", "Habschi", "Simon", "Mosi", "Fabi", "EWWww", "dick", "Nutzer8", "zzz" , "testestet"],
+    labels: spieler_rangliste_chart_labels,
     datasets: [{
-      data: [100, 90, 80, 70, 60, 50, 40, 30, 20, 10],
+      data: spieler_rangliste_chart_values,
       backgroundColor: horizontalBarGradient,
       fill: true,
       borderRadius: [

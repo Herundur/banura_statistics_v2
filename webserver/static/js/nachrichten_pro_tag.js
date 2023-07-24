@@ -5,12 +5,19 @@ gradient.addColorStop(0, colors.green.half);
 gradient.addColorStop(0.25, colors.green.quarter);
 gradient.addColorStop(0.95, colors.green.zero);
 
+nachrichten_pro_tag_labels = []
+nachrichten_pro_tag_values = []
+nachrichten_pro_tag_chart.forEach(element => {
+  nachrichten_pro_tag_labels.push(element[0]);
+  nachrichten_pro_tag_values.push(element[1]);
+});
+
 new Chart(ctxNachrichtenProTag, {
   type: 'line',
   data: {
-    labels: ["30 April 2023", 1.5, 2.5, 3.5, 4.5, 5.5 , 6.5],
+    labels: nachrichten_pro_tag_labels,
     datasets: [{
-      data: [10, 19, 13, 45, 32, 23, 17],
+      data: nachrichten_pro_tag_values,
       borderWidth: 2.5,
       borderColor: colors.green.default,
       backgroundColor: gradient,

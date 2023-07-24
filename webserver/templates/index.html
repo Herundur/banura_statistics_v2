@@ -3,6 +3,7 @@
         <head>
             <meta charset="UTF-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <link rel="icon" href="{{ url_for('static', filename='images/banura_statistics_icon.ico') }}" type="image/x-icon">
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-stacked100@1.0.0"></script>
             <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
@@ -17,6 +18,7 @@
             <link rel="stylesheet" href="../static/css/charts.css">
             <link rel="stylesheet" href="../static/css/footer.css">
             <script src="../static/js/general.js"></script>
+            <script src="../static/js/format_data.js"></script>
             <title>Banura Statistics</title>
         </head>
     <body>
@@ -28,37 +30,47 @@
                         <input type="text" id="search-input" name="query" placeholder="Nutzer suchen" />
                     </form>
                 </div>
-                <span class="fa-brands fa-discord"></span>
+                <a href="https://discord.gg/pzSn9vmeJm">
+                    <span class="fa-brands fa-discord"></span>
+                </a>
             </div>
         </header>
         <main>
-            <script>/* const geasmtLabebl = {{ geesamt}}}
-                        const gesamtData = {{gesamt.data}} 
-                        etc...
-                    */</script>
+            <script></script>
             <div id="start-main-flexbox">
                 <h3 id="dashboard">Dashboard</h3>
                 <div class="select-wrapper">
-                    <select>
-                        <option value="option1" selected>Seit Beginn</option>
-                        <option value="option2">Letzte 30 Tage</option>
-                        <option value="option3">Letzte 7 Tage</option>
+                    <select id="timespanSelect" name="zeitspanne">
+                        <option value="seitBeginn" {% if selected_option == 'seitBeginn' %}selected{% endif %}>Seit Beginn</option>
+                        <option value="letzte30Tage" {% if selected_option == 'letzte30Tage' %}selected{% endif %}>Letzte 30 Tage</option>
+                        <option value="letzte7Tage" {% if selected_option == 'letzte7Tage' %}selected{% endif %}>Letzte 7 Tage</option>
                     </select>
+                    <script src="../static/js/select_timespan.js"></script>
                 </div>
             </div>
             <div class="cards-flexbox">
                 <div class="card">
                     <h4>gesendete Nachrichten</h4>
-                    <h2>31.127</h2>
-                    <h5>+180</h5>
-                    <h6>vs vorherige 30 Tage</h6>
+                    <h2 id="gesendete_nachrichten_text">FEHLER</h2>
+                    <h5 id="gesendete_nachrichten_difference">FEHLER</h5>
+                    <h6 id="gesendete_nachrichten_timespan">DATEN KONNTEN NICHT GELADEN WERDEN</h6>
+                    <script>
+                        document.getElementById("gesendete_nachrichten_text").innerHTML = formatValue({{ data["gesendete_nachrichten_text"]|tojson }});
+                        document.getElementById("gesendete_nachrichten_difference").style.color = getColor({{ data["gesendete_nachrichten_difference"]|tojson }});
+                        document.getElementById("gesendete_nachrichten_difference").innerHTML = formatValueWithSymbols({{ data["gesendete_nachrichten_difference"]|tojson }});
+                        document.getElementById("gesendete_nachrichten_timespan").innerHTML = timespanText({{ data["messbeginn"]|tojson }}, "{{ selected_option|string }}");
+                    </script>
                 </div>
                 <div class="card">
                     <h4>Nachrichten pro Tag</h4>
-                    <h3 class="average">127</h3>
+                    <h3 id="nachrichten_pro_tag_text" class="average">127</h3>
                     <div>
                         <canvas id="nachrichten_pro_tag" class="smallLine"></canvas>
                     </div>
+                    <script>
+                        document.getElementById("nachrichten_pro_tag_text").innerHTML = formatValue({{ data["nachrichten_pro_tag_text"]|tojson }});
+                        const nachrichten_pro_tag_chart = ({{ data["nachrichten_pro_tag_chart"]|tojson }});
+                    </script>
                     <script src="../static/js/nachrichten_pro_tag.js"></script>
                 </div>
                 <div class="card">
@@ -66,6 +78,9 @@
                     <div>
                         <canvas id="aktivität_nach_wochentage" class="smallBar"></canvas>
                     </div>
+                    <script>
+                        const aktivität_nach_wochentage_chart = ({{ data["aktivität_nach_wochentage_chart"]|tojson }});
+                    </script>
                     <script src="../static/js/aktivität_nach_wochentage.js"></script>
                 </div>
                 <div class="card">
@@ -73,32 +88,53 @@
                     <div>
                         <canvas id="aktivität_nach_stunden" class="smallBar"></canvas>
                     </div>
+                    <script>
+                        const aktivität_nach_stunden_chart = ({{ data["aktivität_nach_stunden_chart"]|tojson }});
+                    </script>
                     <script src="../static/js/aktivität_nach_stunden.js"></script>
                 </div>
                 <div class="card">
                     <h4>Leauge Of Legends Pings</h4>
-                    <h2>212</h2>
-                    <h5>+12</h5>
-                    <h6>vs vorherige 30 Tage</h6>
+                    <h2 id="leauge_of_legends_pings_text">FEHLER</h2>
+                    <h5 id="leauge_of_legends_pings_difference">FEHLER</h5>
+                    <h6 id="leauge_of_legends_pings_timespan">DATEN KONNTEN NICHT GELADEN WERDEN</h6>
+                    <script>
+                        document.getElementById("leauge_of_legends_pings_text").innerHTML = formatValue({{ data["leauge_of_legends_pings_text"]|tojson }});
+                        document.getElementById("leauge_of_legends_pings_difference").style.color = getColor({{ data["leauge_of_legends_pings_difference"]|tojson }});
+                        document.getElementById("leauge_of_legends_pings_difference").innerHTML = formatValueWithSymbols({{ data["leauge_of_legends_pings_difference"]|tojson }});
+                        document.getElementById("leauge_of_legends_pings_timespan").innerHTML = timespanText({{ data["messbeginn"]|tojson }}, "{{ selected_option|string }}");
+                    </script>
                 </div>
                 <div class="card cardChannelRangliste">
                     <h4 class="big">Channel Rangliste</h4>
                     <div>
                         <canvas id="channel_rangliste" class="channel_rangliste"></canvas>
                     </div>
+                    <script>
+                        const channel_rangliste_chart = ({{ data["channel_rangliste_chart"]|tojson }});
+                    </script>
                     <script src="../static/js/channel_rangliste.js"></script>
                 </div>
                 <div class="card">
                     <h4>Spieleranzahl</h4>
-                    <h2>90</h2>
-                    <h5>+2</h5>
-                    <h6>vs vorherige 30 Tage</h6>
+                    <h2 id="spieleranzahl_text">FEHLER</h2>
+                    <h5 id="spieleranzahl_difference">FEHLER</h5>
+                    <h6 id="spieleranzahl_timespan">DATEN KONNTEN NICHT GELADEN WERDEN</h6>
+                    <script>
+                        document.getElementById("spieleranzahl_text").innerHTML = formatValue({{ data["spieleranzahl_text"]|tojson }});
+                        document.getElementById("spieleranzahl_difference").style.color = getColor({{ data["spieleranzahl_difference"]|tojson }});
+                        document.getElementById("spieleranzahl_difference").innerHTML = formatValueWithSymbols({{ data["spieleranzahl_difference"]|tojson }});
+                        document.getElementById("spieleranzahl_timespan").innerHTML = timespanText({{ data["messbeginn"]|tojson }}, "{{ selected_option|string }}");
+                    </script>
                 </div>
                 <div class="card cardSpielerRangliste">
                     <h4 class="big">Spieler Rangliste</h4>
                     <div>
                         <canvas id="spieler_rangliste" class="spieler_rangliste"></canvas>
                     </div>
+                    <script>
+                        const spieler_rangliste_chart = ({{ data["spieler_rangliste_chart"]|tojson }});
+                    </script>
                     <script src="../static/js/spieler_rangliste.js"></script>
                 </div>
             </div>
@@ -107,8 +143,12 @@
             <div class="footer-flexbox">
                 <h5>Banura Statistcs 2023</h5>
                 <div class="icon-flexbox">
-                    <span class="fa-brands fa-discord"></span>
-                    <span class="fa-brands fa-github"></span> 
+                    <a href="https://discord.gg/pzSn9vmeJm" tabindex="-1">
+                        <span class="fa-brands fa-discord"></span>
+                    </a>
+                    <a href="https://github.com/Herundur/banura_statistics_v2">
+                        <span class="fa-brands fa-github"></span> 
+                    </a>
                 </div>
             </div>
         </footer>

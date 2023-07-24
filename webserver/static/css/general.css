@@ -11,5 +11,9 @@ body {
 }
 
 header {
-    max-width: 100%;
+    max-width: 100%; 
 }
+
+a {
+    display: inline-block;
+  }
