@@ -19,18 +19,18 @@ def getMessbeginn(cur):
     return date
 
 
-def messages_count(cur, timespan = ""):
+def messages_count(cur, timespan = "", user = ""):
     SQLtimespan = timespanToSQL(timespan)
-    cur.execute(f"SELECT COUNT(*) FROM messages {SQLtimespan}")
+    cur.execute(f"SELECT COUNT(*) FROM messages {SQLtimespan} {user}")
     count = cur.fetchone()[0]
     return count
 
 
-def messages_average(cur, timespan = ""):
+def messages_average(cur, timespan = "", user = ""):
     today = datetime.now()
     SQLtimespan = timespanToSQL(timespan)
     cur.execute(f"SELECT COUNT(*) / (JulianDay(?) - JulianDay(MIN(DATETIME(date)))) \
-                    FROM messages {SQLtimespan}", (today,))
+                    FROM messages {SQLtimespan} {user}", (today,))
     average_messages_per_day = cur.fetchone()[0]
     if (average_messages_per_day == None): 
         return 0
@@ -102,12 +102,13 @@ def messages_average_chart_day(cur, timespan):
     return rows
 
 
-def messages_per_weekday(cur, timespan = ""):
+def messages_per_weekday(cur, timespan = "", user = ""):
     SQLtimespan = timespanToSQL(timespan)
     cur.execute(f"""
         SELECT strftime('%w', date) AS weekday, COUNT(*) AS count
         FROM messages
         {SQLtimespan}
+        {user}
         GROUP BY weekday
         ORDER BY weekday
         """)
@@ -138,7 +139,7 @@ def messages_per_weekday(cur, timespan = ""):
     return newRows
 
 
-def messages_per_one_day(cur, timespan = ""):
+def messages_per_one_day(cur, timespan = "", user = ""):
     SQLtimespan = timespanToSQL(timespan)
     cur.execute(f"""
     SELECT
@@ -160,6 +161,7 @@ def messages_per_one_day(cur, timespan = ""):
     COUNT(*) AS message_count
     FROM messages
     {SQLtimespan}
+    {user}
     GROUP BY time_span
     ORDER BY time_span
     """)
@@ -201,13 +203,14 @@ def lol_pings(cur, timespan = ""):
     lol_pings = cur.fetchone()[0]
     return lol_pings
 
-def channel_leaderboard(cur, timespan = ""):
+def channel_leaderboard(cur, timespan = "", user = ""):
     SQLtimespan = timespanToSQL(timespan)
     cur.execute(f"""
                 SELECT channels.name, COUNT(*) AS count 
                 FROM messages 
                 JOIN channels ON channels.id = messages.channel_id
                 {SQLtimespan}
+                {user}
                 GROUP BY channel_id 
                 ORDER BY count DESC
                 LIMIT 5
@@ -244,3 +247,33 @@ def user_leaderboard(cur, timespan = ""):
 
     rows = cur.fetchall()
     return rows
+
+def user_rank(cur, id):
+    cur.execute(f"""
+                WITH ranked_messages AS (
+                    SELECT messages.author_id, COUNT(*) AS message_count,
+                        RANK() OVER (ORDER BY COUNT(*) DESC) AS user_rank
+                    FROM messages
+                    JOIN users ON users.id = messages.author_id
+                    WHERE users.bot = 0
+                    GROUP BY messages.author_id
+                )
+                SELECT user_rank
+                FROM ranked_messages
+                WHERE author_id = {id};
+                """)
+    user_count = cur.fetchone()
+    if (user_count):
+        user_count = user_count[0]
+    return user_count
+
+def user_info(cur, id):
+    cur.execute(f"""
+                SELECT picture, username, nickname, date
+                FROM users
+                WHERE id = {id}
+                """)
+    user = cur.fetchone()
+    input_datetime = datetime.strptime(user[3], "%Y-%m-%d %H:%M:%S")
+    date = input_datetime.strftime("%d.%m.%Y")
+    return user, date

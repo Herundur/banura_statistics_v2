@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-stacked100@1.0.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+    <script src="https://kit.fontawesome.com/a069de01db.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@200;300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/header.css">
+    <link rel="stylesheet" href="../static/css/general.css">
+    <link rel="stylesheet" href="../static/css/cards.css">
+    <link rel="stylesheet" href="../static/css/footer.css">
+    <link rel="stylesheet" href="../static/css/error_message.css">
+    <title>Banura Statistics - Kein Nutzer gefunden</title>
+  </head>
+  <body>
+    <header>
+        <div class="header-flexbox">
+            <i id="back-arrow" class="fa-solid fa-arrow-left"></i>
+            <script>
+                const backArrow = document.getElementById('back-arrow');
+                backArrow.addEventListener('click', () => {
+                    window.location.href = `/dashboard?zeitspanne=seitBeginn`;
+                });
+            </script>
+            <h5 id="title">kein Nutzer gefunden</h5>
+            <a href="https://discord.gg/pzSn9vmeJm">
+                <span class="fa-brands fa-discord"></span>
+            </a>
+        </div>
+    </header>
+    <main>
+        <div class="cards-flexbox" style="margin-top: 72px; margin-bottom: 400px;">
+            <div class="card wrapper">
+                <i class="fa-solid fa-circle-exclamation"></i>
+                <p class="error">Es wurde kein Nutzer unter dem Nicknamen/Nutzernamen <strong>{{ name }}</strong> gefunden!</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-flexbox">
+            <h5>Banura Statistcs 2023</h5>
+            <div class="icon-flexbox">
+                <a href="https://discord.gg/pzSn9vmeJm" tabindex="-1">
+                    <span class="fa-brands fa-discord"></span>
+                </a>
+                <a href="https://github.com/Herundur/banura_statistics_v2">
+                    <span class="fa-brands fa-github"></span> 
+                </a>
+            </div>
+        </div>
+    </footer>
+  </body>
+</html>

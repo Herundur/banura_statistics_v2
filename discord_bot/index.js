@@ -43,7 +43,7 @@ client.on('userUpdate', async (oldMember, newMember) => {
 });
 
 // RUN THIS COMMAND AFTER BOT JOINS SERVER
-/*
+
 client.on("messageCreate", async msg => {
   if (msg.content == "#updateAll") {
     const guild = client.guilds.cache.get(msg.guildId);
@@ -56,7 +56,7 @@ client.on("messageCreate", async msg => {
   }
   closeDatabase();
 });
-*/
+
 
 client.on('ready', () => {
     console.log(`Bot is ready! Logged in as ${client.user.tag}`);

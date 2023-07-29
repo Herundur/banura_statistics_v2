@@ -19,24 +19,32 @@
             <link rel="stylesheet" href="../static/css/footer.css">
             <script src="../static/js/general.js"></script>
             <script src="../static/js/format_data.js"></script>
-            <title>Banura Statistics</title>
+            <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+            <title>Banura Statistics - Dashboard</title>
         </head>
     <body>
         <header>
-            <div id="header-flexbox">
+            <div class="header-flexbox">
                 <img id="logo" src="../static/images/logo.png">
                 <div class="search-wrapper">
-                    <form class="search-bar" action="/search" method="GET">
-                        <input type="text" id="search-input" name="query" placeholder="Nutzer suchen" />
+                    <form id="search-form" class="search-bar" action="/search" method="GET">
+                        <div class="form-group">
+                            <input type="text" id="search-bar" name="query" placeholder="Nutzer suchen" />
+                        </div>
+                        <div class="dropdown">
+                            <div id="autocomplete-suggestions" class="dropdown-menu" aria-labelledby="search-bar">
+                            </div>
+                        </div>
                     </form>
                 </div>
+                <script src="../static/js/dropdown.js"></script>
                 <a href="https://discord.gg/pzSn9vmeJm">
                     <span class="fa-brands fa-discord"></span>
                 </a>
             </div>
         </header>
         <main>
-            <script></script>
             <div id="start-main-flexbox">
                 <h3 id="dashboard">Dashboard</h3>
                 <div class="select-wrapper">

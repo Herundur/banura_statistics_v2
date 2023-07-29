@@ -1,0 +1,116 @@
+.vector-container{
+    position: relative;
+}
+
+.vector1{
+    top: 0%;
+    width: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+.vector2{
+    top: 0%;
+    width: 85%;
+    margin-top: 28%;
+    margin-left: 21px;
+    position: absolute;
+    z-index: -2;
+}
+
+.profile-wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    margin-top: 40px;
+}
+
+.profile-content{
+    position: relative;
+    top: 0;
+    left: 0;
+    padding: 24px;
+    display: flex;
+}
+
+.profile-picture{
+    height: 72px;
+    width: 72px;
+    border-radius: 10px;
+}
+
+.profile-names{
+    padding: 0px;
+    margin-left: 16px;
+}
+h1{
+    color: white;
+    opacity: 90%;
+    font-weight: 500;
+    font-size: 31px;
+    margin: 0%;
+}
+
+h2{
+    color: white;
+    opacity: 90%;
+    font-weight: 500;
+    font-size: 21px;
+    margin: 0%;
+}
+
+h3{
+    color: white;
+    opacity: 90%;
+    font-weight: 300;
+    font-size: 17px;
+    margin: 0%;
+    margin-bottom: 12px;
+}
+
+h4{
+    color: white;
+    opacity: 90%;
+    font-weight: 400;
+    font-size: 11px;
+    margin: 0px;
+}
+
+h5{
+    color: white;
+    opacity: 75%;
+    font-weight: 300;
+    font-size: 11px;
+    margin: 0px;
+}
+
+.line{
+    height: 24px;
+    width: 2px;
+    border-radius: 10px;
+    background-color: white;
+    opacity: 75%;;
+}
+
+.nachrichten-wrapper{
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+}
+
+.inside-nachrichten-wrapper{
+    margin-inline: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+}
+
+#nachrichten_pro_tag_text::after {
+    content: "Ø";
+}
+
+#rank::before{
+    content: "#";
+}

@@ -1,4 +1,4 @@
-#header-flexbox {
+.header-flexbox {
     position: fixed;
     top: 0;
     height: 48px;
@@ -23,7 +23,7 @@
     position: relative;
 }
 
-#search-input {
+#search-bar {
     width: 100%;
     border-radius: 50px;
     background-color: var(--card-bg);
@@ -38,10 +38,29 @@
     opacity: 90%;
 }
 
-#search-input:focus {
+#search-bar:focus {
     outline: none;
     background-color: #3b3b3b;
 }
+
+.dropdown-menu {
+    margin-top: 8px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    font-size: 10px;
+    background-color: #383838;
+    border-radius: 10px;
+    box-shadow: 1.5px 3px 4px rgba(0, 0, 0, 0.20);
+  }
+
+  .dropdown-item {
+    margin: 8px 12px;
+    color: white;
+    text-decoration: none;
+    opacity: 90%;
+  }
 
 .search-wrapper::after {
     content: "\f002"; /* Font Awesome chevron-down icon */
@@ -58,6 +77,19 @@
 
 .fa-brands.fa-discord {
     font-size: 20px;
+    color: white;
+    opacity: 90%;
+}
+
+.fa-arrow-left{
+    font-size: 18px;
+    color: white;
+    opacity: 90%;
+}
+
+#title{
+    font-size: 12px;
+    font-weight: 400;
     color: white;
     opacity: 90%;
 }
