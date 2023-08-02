@@ -19,7 +19,7 @@
 }
 
 .search-wrapper {
-    width: 175px;
+    max-width: 175px;
     position: relative;
 }
 
@@ -44,6 +44,7 @@
 }
 
 .dropdown-menu {
+    display: grid;
     margin-top: 8px;
     position: absolute;
     top: 100%;
@@ -55,12 +56,12 @@
     box-shadow: 1.5px 3px 4px rgba(0, 0, 0, 0.20);
   }
 
-  .dropdown-item {
+.dropdown-item {
     margin: 8px 12px;
     color: white;
     text-decoration: none;
     opacity: 90%;
-  }
+}
 
 .search-wrapper::after {
     content: "\f002"; /* Font Awesome chevron-down icon */

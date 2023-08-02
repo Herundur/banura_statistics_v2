@@ -11,7 +11,7 @@ channel_rangliste_chart.forEach(element => {
   channel_rangliste_chart_values.push(element[1]);
 });
 
-new Chart(ctxChannelRangliste, {
+const chartChannelRangliste = new Chart(ctxChannelRangliste, {
   type: 'bar',
   data: {
     labels: channel_rangliste_chart_labels,
@@ -49,6 +49,7 @@ new Chart(ctxChannelRangliste, {
         hitRadius: 20,
       },
     },
+    responsive: true,
     maintainAspectRatio: false,
     scales: {
       y: {

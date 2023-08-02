@@ -1,9 +1,10 @@
-.smallLine {
+.gesendete-nachrichten-pro-tag {
     height: 100px;
     width: 100%;
 }
 
-.smallBar {
+.aktivität-nach-wochentage,
+.aktivität-nach-stunden {
     height: 130px;
     width: 100%;
     margin-inline: 12px;

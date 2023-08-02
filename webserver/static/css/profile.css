@@ -44,6 +44,7 @@
     padding: 0px;
     margin-left: 16px;
 }
+
 h1{
     color: white;
     opacity: 90%;
@@ -58,6 +59,14 @@ h2{
     font-weight: 500;
     font-size: 21px;
     margin: 0%;
+}
+
+#nickname{
+    font-size: 15px;
+}
+
+#username{
+    margin-bottom: 18px;
 }
 
 h3{

@@ -1,0 +1,41 @@
+@media (min-width: 1000px) { 
+
+    .card > h4 {
+        font-size: 21px;
+        font-weight: 400;
+        margin: 14px 0px 0px 20px;
+    }
+
+    .card > h4.big {
+        margin-bottom: 20px;
+    }
+
+    .card > h2 {
+        height: 56px;
+        font-size: 56px;
+        margin: 24px 0px 8px 0px;
+    }
+
+    .card > h3 {
+        height: 56px;
+        font-size: 48px;
+        font-weight: 500;
+        margin: 8px 0px 0px 20px;
+    }
+
+    .card > h5 {
+        height: 18px;
+        font-size: 18px;
+    }
+
+    .card > h6 {
+        height: 18px;
+        font-size: 18px;
+    }
+}
+
+@media (min-width: 2000px) {
+    .card > h2 {
+        margin: 64px 0px 8px 0px;
+    }
+}

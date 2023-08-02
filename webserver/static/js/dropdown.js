@@ -11,15 +11,17 @@ $(document).ready(function () {
           // Clear the previous suggestions
           $('#autocomplete-suggestions').empty();
           // Populate the dropdown with the new suggestions
-          data.forEach(function (user) {
+          let i = 0
+          for (let i = 0; i < 15; i++) {
             let suggestion;
+            let user = data[i]
             if (user.nickname) {
               suggestion = `<a class="dropdown-item" href="#">${user.username} | ${user.nickname}</a>`;
             } else {
               suggestion = `<a class="dropdown-item" href="#">${user.username}</a>`;
             }
             $('#autocomplete-suggestions').append(suggestion);
-          });
+          };
 
           // Show the dropdown
           $('.dropdown').addClass('show');

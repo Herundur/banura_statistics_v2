@@ -13,7 +13,7 @@ aktivität_nach_wochentage_chart.forEach(element => {
   aktivität_nach_wochentage_values.push(element[1]);
 });
 
-new Chart(ctxAktivitätNachWochentage, {
+const chartAktivitätNachWochentage = new Chart(ctxAktivitätNachWochentage, {
   type: 'bar',
   data: {
     labels: aktivität_nach_wochentage_labels,
@@ -62,6 +62,7 @@ new Chart(ctxAktivitätNachWochentage, {
         hitRadius: 20,
       },
     },
+    responsive: true,
     maintainAspectRatio: false,
     scales: {
       y: {
@@ -101,3 +102,8 @@ new Chart(ctxAktivitätNachWochentage, {
     }
   }
 });
+
+function responsiveCharts() {
+  console.log(window.outerWidth)
+  console.log("asd")
+}

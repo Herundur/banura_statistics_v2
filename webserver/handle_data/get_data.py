@@ -198,13 +198,17 @@ def lol_pings(cur, timespan = ""):
     cur.execute(f"""
                 SELECT COUNT(*) 
                 FROM messages 
-                WHERE mention_role = 'lol'
+                WHERE mention_role = 'LoL'
                 {SQLtimespan}""")
     lol_pings = cur.fetchone()[0]
     return lol_pings
 
 def channel_leaderboard(cur, timespan = "", user = ""):
     SQLtimespan = timespanToSQL(timespan)
+    if (timespan or user):
+        SQLtimespan += "AND channels.id != 951243124489990225" 
+    else:
+        SQLtimespan += "WHERE channels.id != 951243124489990225" 
     cur.execute(f"""
                 SELECT channels.name, COUNT(*) AS count 
                 FROM messages 
@@ -235,6 +239,10 @@ def user_count(cur, timespan = ""):
 
 def user_leaderboard(cur, timespan = ""):
     SQLtimespan = timespanToSQL(timespan)
+    if (timespan):
+       SQLtimespan += "AND users.bot = 0" 
+    else:
+        SQLtimespan += "WHERE users.bot = 0" 
     cur.execute(f"""
                 SELECT users.username, COUNT(*) AS count 
                 FROM messages 

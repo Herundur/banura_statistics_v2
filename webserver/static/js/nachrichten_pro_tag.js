@@ -1,9 +1,12 @@
 const ctxNachrichtenProTag = document.getElementById('nachrichten_pro_tag');
 
-gradient = ctxNachrichtenProTag.getContext("2d").createLinearGradient(0, 25, 0, 100);
-gradient.addColorStop(0, colors.green.half);
-gradient.addColorStop(0.25, colors.green.quarter);
-gradient.addColorStop(0.95, colors.green.zero);
+function getGradient(x, y) {
+  gradient = ctxNachrichtenProTag.getContext("2d").createLinearGradient(0, x, 0, y);
+  gradient.addColorStop(0, colors.green.half);
+  gradient.addColorStop(0.25, colors.green.quarter);
+  gradient.addColorStop(0.95, colors.green.zero);
+  return gradient
+}
 
 nachrichten_pro_tag_labels = []
 nachrichten_pro_tag_values = []
@@ -12,7 +15,7 @@ nachrichten_pro_tag_chart.forEach(element => {
   nachrichten_pro_tag_values.push(element[1]);
 });
 
-new Chart(ctxNachrichtenProTag, {
+const chartNachrichtenProTag = new Chart(ctxNachrichtenProTag, {
   type: 'line',
   data: {
     labels: nachrichten_pro_tag_labels,
@@ -20,7 +23,15 @@ new Chart(ctxNachrichtenProTag, {
       data: nachrichten_pro_tag_values,
       borderWidth: 2.5,
       borderColor: colors.green.default,
-      backgroundColor: gradient,
+      pointBorderColor: colors.green.default,
+      pointBackgroundColor: colors.green.default,
+      pointHoverBackgroundColor: colors.green.default,
+      pointHoverBorderColor: colors.green.default,
+      pointBorderWidth: 2,
+      pointHoverRadius: 3,
+      pointHoverBorderWidth: 1,
+      pointRadius: 2,
+      backgroundColor: getGradient(25, 100),
       fill: true,
       lineTension: 0.2,
     }]
@@ -32,11 +43,11 @@ new Chart(ctxNachrichtenProTag, {
     elements: {
       point: {
         backgroundColor: "rgba(1, 10, 1, 1)",
-        pointRadius: 2,
         color: "#FFFFFF",
         hitRadius: 20,
       },
     },
+    responsive: true,
     maintainAspectRatio: false,
     scales: {
       y: {

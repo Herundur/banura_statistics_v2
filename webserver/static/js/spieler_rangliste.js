@@ -8,7 +8,7 @@ spieler_rangliste_chart.forEach(element => {
 });
 
 
-new Chart(ctxSpielerRangliste, {
+const chartSpielerRangliste = new Chart(ctxSpielerRangliste, {
   type: 'bar',
   data: {
     labels: spieler_rangliste_chart_labels,
@@ -29,7 +29,6 @@ new Chart(ctxSpielerRangliste, {
         color: "rgba(255, 255, 255, 0.85)",
         font: {
           family: "Readex Pro"
-
         },
       }
     }]
@@ -46,6 +45,7 @@ new Chart(ctxSpielerRangliste, {
         hitRadius: 20,
       },
     },
+    responsive: true,
     maintainAspectRatio: false,
     scales: {
       y: {
@@ -77,3 +77,4 @@ new Chart(ctxSpielerRangliste, {
     }
   }
 });
+

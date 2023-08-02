@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="../static/css/footer.css">
     <link rel="stylesheet" href="../static/css/profile.css">
     <link rel="stylesheet" href="../static/css/charts.css">
+    <link rel="stylesheet" href="../static/css/mq-profile.css">
     <script src="../static/js/general.js"></script>
     <script src="../static/js/format_data.js"></script>
     <title>Banura Statistics - Nutzerprofil</title>
@@ -45,10 +46,10 @@
                     <img class="vector2" src="../static/images/profile_vector_2.svg" alt="Green Waves">
                 </div>
                 <div class="profile-content">
-                    <img class="profile-picture" src="https://cdn.discordapp.com/avatars/170242045510811649/33db5b5ff860e89df20ffef093cff1e1.webp" alt="Profile picture">
+                    <img class="profile-picture" src="{{ data['picture'] }}" alt="Profile picture">
                     <div class="profile-names">
-                        <h2>{{ data["nickname"] }}</h2>
-                        <h3>{{ data["username"] }}</h3>
+                        <h2 id="nickname">{{ data["nickname"] }}</h2>
+                        <h3 id="username">{{ data["username"] }}</h3>
                         <h4>Beitritt: {{ data["date"] }}</h4>
                     </div>
                 </div class=>
@@ -76,7 +77,7 @@
             <div class="card">
                 <h4 class="big">Aktivität nach Wochentage</h4>
                 <div>
-                    <canvas id="aktivität_nach_wochentage" class="smallBar"></canvas>
+                    <canvas id="aktivität_nach_wochentage" class="aktivität-nach-wochentage"></canvas>
                 </div>
                 <script>
                     const aktivität_nach_wochentage_chart = ({{ data["aktivität_nach_wochentage_chart"]|tojson }});
@@ -86,14 +87,14 @@
             <div class="card">
                 <h4 class="big">Aktivität nach Stunden</h4>
                 <div>
-                    <canvas id="aktivität_nach_stunden" class="smallBar"></canvas>
+                    <canvas id="aktivität_nach_stunden" class="aktivität-nach-wochentage"></canvas>
                 </div>
                 <script>
                     const aktivität_nach_stunden_chart = ({{ data["aktivität_nach_stunden_chart"]|tojson }});
                 </script>
                 <script src="../static/js/aktivität_nach_stunden.js"></script>
             </div>
-            <div class="card cardChannelRangliste">
+            <div class="card card-channelrangliste">
                 <h4 class="big">Channel Rangliste</h4>
                 <div>
                     <canvas id="channel_rangliste" class="channel_rangliste"></canvas>

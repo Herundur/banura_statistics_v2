@@ -10,7 +10,7 @@ aktivität_nach_stunden_chart.forEach(element => {
   aktivität_nach_stunden_values.push(element[1]);
 });
 
-new Chart(ctxAktivitätNachStunden, {
+const chartAktivitätNachStunden = new Chart(ctxAktivitätNachStunden, {
   type: 'bar',
   data: {
     labels: aktivität_nach_stunden_labels,
@@ -26,12 +26,13 @@ new Chart(ctxAktivitätNachStunden, {
         align: 'end',
         anchor: 'start',
         formatter: function(value, context) {
-          return context.chart.data.labels[context.dataIndex];
+          return ["0-2", "2-4", "4-6", "6-8", "8-10", "10-12", "12-14", "14-16", "16-18", "18-20", "20-22", "22-24"][context.dataIndex]; //return context.chart.data.labels[context.dataIndex]; 
         },
         color: "rgba(255, 255, 255, 0.85)",
         font: {
           family: "Readex Pro",
         },
+        rotation: 270,
       }
     },
     {
@@ -47,6 +48,7 @@ new Chart(ctxAktivitätNachStunden, {
       }
     }]
   },
+  plugins: [ChartDataLabels],
   options: {
     interaction: {
       mode: 'nearest'
@@ -57,6 +59,7 @@ new Chart(ctxAktivitätNachStunden, {
         hitRadius: 20,
       },
     },
+    responsive: true,
     maintainAspectRatio: false,
     scales: {
       y: {

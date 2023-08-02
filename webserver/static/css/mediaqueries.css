@@ -1,0 +1,170 @@
+@media (min-width: 1000px) {
+    .header-flexbox {
+        height: 64px;
+        padding-inline: 70px;
+        position: absolute;
+    }
+
+    .footer-flexbox {
+        height: 64px;
+        padding-inline: 70px;
+        margin-top: 48px;
+    }
+
+    #logo {
+        height: 40px;
+        width: 40px;
+    }
+
+    .logo-wrapper {
+        position: relative;
+        display: inline-block;
+    }
+
+    .logo-wrapper::after {
+        content: "Banura Statistics";
+        font-size: 21px;
+        color: white;
+        opacity: 90%;
+        position: absolute;
+        top: 20%;
+        width: 300px;
+        margin-left: 16px;
+    }
+
+    .search-wrapper {
+        min-width: 320px;
+    }
+
+    .fa-brands.fa-github {
+        font-size: 32px;
+    }
+    .fa-brands.fa-discord {
+        font-size: 28px;
+    }
+
+    .footer-flexbox > h5,
+    #search-bar,
+    .search-wrapper::after
+     {
+        font-size: 16px;
+    }
+
+    .dropdown-menu {
+        margin-top: 14px;
+        top: 100%;
+        font-size: 16px;
+      }
+    
+    .dropdown-item {
+        margin: 16px 24px;
+    }
+    
+
+    #start-main-flexbox {
+        margin: 96px 70px 24px 70px;
+    }
+
+    #dashboard{
+        font-size: 24px;
+
+    }
+    
+    .select-wrapper {
+        min-width: 168px;
+        position: relative;
+    }
+    
+    select {
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .select-wrapper::after {
+        font-size: 16px;
+    }
+
+    .card {
+        height: 100%;
+        margin-bottom: 0px; 
+    }
+    
+    .card-channelrangliste,
+    .card-spielerrangliste,
+    .card-aktivität-nach-stunden,
+    .card-aktivität-nach-wochentage,
+    .card-nachrichten-pro-tag {
+        display: grid;
+    }
+
+    .gesendete-nachrichten-pro-tag-wrapper {
+        margin-right: 14px;
+    }
+
+    .channel_rangliste,
+    .spieler_rangliste
+    {
+        height: 100%;
+        margin: 0px 0px 8px 20px;
+    }
+
+    .aktivität-nach-stunden {
+        margin: 0px 16px 16px 8px;
+    }
+
+    .aktivität-nach-wochentage {
+        margin: 0px 0px 16px 3px;
+    }
+
+    body {
+        display: flex;
+        flex-direction: column;
+        max-height: 100vh;
+    }
+
+    .cards-flexbox {
+        margin-inline: 70px;
+        display: grid;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-row-gap: 24px;
+        height: calc(100vh - (183px));
+        grid-column-gap: 32px;
+    }
+    
+    .card-nachrichten-pro-tag {
+        grid-area: 1 / 1 / 4 / 3;
+    }
+
+    .card-gesendete-nachrichten {
+        grid-area: 4 / 1 / 6 / 2;
+    }
+
+    .card-spieleranzahl {
+        grid-area: 4 / 2 / 6 / 3;
+    }
+
+    .card-pings {
+        grid-area: 4 / 2 / 6 / 3;
+    }
+
+    .card-aktivität-nach-stunden {
+        grid-area: 6 / 1 / 8 / 3;
+    }
+
+    .card-aktivität-nach-wochentage{
+        grid-area: 6 / 3 / 8 / 5;
+    }
+
+    .card-pings {
+        grid-area: 4 / 4 / 6 / 5;
+    }
+
+    .card-spielerrangliste {
+        grid-area: 1 / 3 / 6 / 3;
+    } 
+
+    .card-channelrangliste{
+        grid-area: 1 / 4 / 4 / 4;
+    }
+}

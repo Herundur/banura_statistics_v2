@@ -1,8 +1,6 @@
 .cards-flexbox {
     margin-inline: 35px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
+    display: grid;
 }
 
 .card {
@@ -14,11 +12,11 @@
     box-shadow: 1.5px 3px 4px rgba(0, 0, 0, 0.20);
 }
 
-.cardChannelRangliste {
+.card-channelrangliste {
     height: 220px;
 }
 
-.cardSpielerRangliste {
+.card-spielerrangliste {
     height: 384px;
 }
 
