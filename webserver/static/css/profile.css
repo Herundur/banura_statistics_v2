@@ -45,6 +45,14 @@
     margin-left: 16px;
 }
 
+.cards-flexbox{
+    margin-top: 72px;
+}
+
+.card-profile{
+    height: 369px;
+}
+
 h1{
     color: white;
     opacity: 90%;

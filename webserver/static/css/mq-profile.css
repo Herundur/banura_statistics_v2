@@ -1,0 +1,169 @@
+@media (min-width: 1000px) {
+    
+    .cards-flexbox-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .card {
+        height: 100%;
+        margin-bottom: 0px; 
+    }
+
+    .profile-content{
+        padding: 32px;
+    }
+
+    .profile-picture{
+        height: 96px;
+        width: 96px;
+    }
+    
+    .profile-names{
+        padding: 0px;
+        margin-left: 24px;
+    }
+
+    .profile-wrapper{
+        margin-top: 58px;
+    }
+
+    h1{
+        font-size: 48px;
+    }
+    
+    h2{
+        font-size: 36px;
+    }
+    
+    #nickname{
+        font-size: 21px;
+    }
+    
+    #username{
+        margin-bottom: 27px;
+    }
+    
+    h3{
+        font-size: 21px;
+        margin-bottom: 16px;
+    }
+    
+    h4{
+        font-size: 16px;
+    }
+    
+    h5{
+        font-size: 16px;
+    }
+    
+    .line{
+        height: 36px;
+        width: 3px;
+    }
+    
+    .nachrichten-wrapper{
+        display: flex;
+        align-items: center;
+        margin-bottom: 56px;
+    }
+    
+    .inside-nachrichten-wrapper{
+        margin-inline: 24px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; 
+    }
+    .cards-flexbox {
+        margin-top: 110px;
+        grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr;
+        grid-row-gap: 24px;
+        height: calc(100vh - (158px));
+        grid-column-gap: 32px;
+        width: 45%;
+    }
+
+    .card-profile {
+        grid-area: 1 / 1 / 6 / 2;
+    }
+
+    .card-aktivität-nach-stunden {
+        grid-area: 6 / 1 / 8 / 3;
+    }
+
+    .card-channelrangliste {
+        grid-area: 1 / 2 / 4 / 3;
+    }
+
+    .card-aktivität-nach-wochentage {
+        grid-area: 4 / 2 / 6 / 3;
+    }
+}
+
+@media (min-width: 2000px) {
+
+    .profile-content{
+        padding: 48px;
+    }
+
+    .profile-picture{
+        height: 112px;
+        width: 112px;
+    }
+    
+    .profile-names{
+        padding: 0px;
+        margin-left: 32px;
+    }
+
+    .profile-wrapper{
+        margin-top: 88px;
+    }
+
+    h1{
+        font-size: 56px;
+    }
+    
+    h2{
+        font-size: 44px;
+    }
+    
+    #nickname{
+        font-size: 28px;
+    }
+    
+    #username{
+        margin-bottom: 20px;
+    }
+    
+    h3{
+        font-size: 28px;
+        margin-bottom: 26px;
+    }
+    
+    h4{
+        font-size: 21px;
+    }
+    
+    h5{
+        font-size: 21px;
+    }
+    
+    .line{
+        height: 44px;
+        width: 4px;
+    }
+    
+    .nachrichten-wrapper{
+        display: flex;
+        align-items: center;
+        margin-bottom: 88px;
+    }
+    
+    .inside-nachrichten-wrapper{
+        margin-inline: 40px;
+    }
+}

@@ -1,0 +1,17 @@
+@media (min-width: 1000px)  {
+    .cards-flexbox {
+        margin-bottom: 0px;
+        margin-top: 110px;
+        height: calc(100vh - (158px));
+        display: flex;
+        justify-content: center;
+    }
+
+    .wrapper{
+        width: 35%;
+    }
+
+    .error{
+        font-size: 21px;
+    } 
+}

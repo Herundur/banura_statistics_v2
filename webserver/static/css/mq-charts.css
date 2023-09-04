@@ -1,0 +1,32 @@
+@media (min-width: 1000px)  {
+    .card-channelrangliste,
+    .card-spielerrangliste,
+    .card-aktivität-nach-stunden,
+    .card-aktivität-nach-wochentage,
+    .card-nachrichten-pro-tag {
+        display: grid;
+    }
+
+    .gesendete-nachrichten-pro-tag-wrapper {
+        margin-right: 14px;
+    }
+
+    .channel_rangliste,
+    .spieler_rangliste
+    {
+        height: 100%;
+        margin: 0px 16px 8px 20px;
+    }
+
+    .aktivität-nach-stunden {
+        margin: 0px 16px 16px 8px;
+    }
+
+    .aktivität-nach-wochentage {
+        margin: 0px 0px 16px 3px;
+    }
+
+    .aktivität-nach-wochentage-profil {
+        margin: 0px 10px 16px 10px;
+    }
+}

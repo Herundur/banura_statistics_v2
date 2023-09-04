@@ -4,7 +4,8 @@
 }
 
 .aktivität-nach-wochentage,
-.aktivität-nach-stunden {
+.aktivität-nach-stunden,
+.aktivität-nach-wochentage-profil{
     height: 130px;
     width: 100%;
     margin-inline: 12px;

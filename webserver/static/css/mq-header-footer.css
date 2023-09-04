@@ -1,0 +1,60 @@
+@media (min-width: 1000px)  {
+    .header-flexbox {
+        height: 64px;
+        padding-inline: 70px;
+        position: absolute;
+    }
+
+    .footer-flexbox {
+        height: 64px;
+        padding-inline: 70px;
+        margin-top: 48px;
+    }
+
+    #logo {
+        height: 40px;
+        width: 40px;
+    }
+
+    .logo-wrapper {
+        position: relative;
+        display: inline-block;
+    }
+
+    .logo-wrapper::after {
+        content: "Banura Statistics";
+        font-size: 21px;
+        color: white;
+        opacity: 90%;
+        position: absolute;
+        top: 20%;
+        width: 300px;
+        margin-left: 16px;
+    }
+
+    .search-wrapper {
+        min-width: 320px;
+    }
+
+    .fa-brands.fa-github {
+        font-size: 32px;
+    }
+    .fa-brands.fa-discord {
+        font-size: 28px;
+    }
+
+    .footer-flexbox > h5,
+    #search-bar,
+    .search-wrapper::after
+     {
+        font-size: 16px;
+    }
+
+    .fa-arrow-left{
+        font-size: 24px;
+    }
+    
+    #title{
+        font-size: 21px;
+    }
+}
