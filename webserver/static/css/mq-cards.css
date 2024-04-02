@@ -1,8 +1,41 @@
-@media (min-width: 1000px) { 
+@media (min-width: 768px) { 
+    .card > h4 {
+        font-size: 14px;
+        font-weight: 400;
+        margin: 10px 0px 0px 14px;
+    }
+
+    .card > h4.big {
+        margin-bottom: 8px;
+    }
+
+    .card > h2 {
+        height: 34px;
+        font-size: 34px;
+        margin: 12px 0px 4px 0px;
+    }
+
+    .card > h3 {
+        font-size: 32px;
+        font-weight: 500;
+        margin: 0px 0px 0px 14px;
+    }
+
+    .card > h5 {
+        height: 14px;
+        font-size: 14px;
+    }
+
+    .card > h6 {
+        height: 12px;
+        font-size: 12px;
+    }
+}
+
+@media (min-width: 1300px) { 
 
     .card > h4 {
         font-size: 21px;
-        font-weight: 400;
         margin: 14px 0px 0px 20px;
     }
 
@@ -19,13 +52,13 @@
     .card > h3 {
         height: 56px;
         font-size: 48px;
-        font-weight: 500;
         margin: 8px 0px 0px 20px;
     }
 
     .card > h5 {
         height: 18px;
         font-size: 18px;
+        margin-bottom: 16px;
     }
 
     .card > h6 {

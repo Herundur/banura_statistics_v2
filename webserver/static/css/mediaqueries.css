@@ -1,4 +1,4 @@
-@media (min-width: 1000px) {
+@media (min-width: 768px) { 
     .dropdown-menu {
         margin-top: 14px;
         top: 100%;
@@ -11,26 +11,26 @@
     
 
     #start-main-flexbox {
-        margin: 96px 70px 24px 70px;
+        margin: 72px 45px 16px 45px;
     }
 
     #dashboard{
-        font-size: 24px;
+        font-size: 20px;
 
     }
     
     .select-wrapper {
-        min-width: 168px;
+        min-width: 130px;
         position: relative;
     }
     
     select {
-        height: 40px;
-        font-size: 16px;
+        height: 32px;
+        font-size: 12px;
     }
     
     .select-wrapper::after {
-        font-size: 16px;
+        font-size: 12px;
     }
 
     .card {
@@ -45,12 +45,12 @@
     }
 
     .cards-flexbox {
-        margin-inline: 70px;
+        margin-inline: 45px;
         grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-columns: 1fr 1fr 1fr 1fr;
-        grid-row-gap: 24px;
-        height: calc(100vh - (183px));
-        grid-column-gap: 32px;
+        grid-row-gap: 16px;
+        height: calc(100vh - (145px));
+        grid-column-gap: 23px;
     }
     
     .card-nachrichten-pro-tag {
@@ -88,4 +88,36 @@
     .card-channelrangliste{
         grid-area: 1 / 4 / 4 / 4;
     }
+}
+
+@media (min-width: 1300px) {
+    #start-main-flexbox {
+        margin: 96px 70px 24px 70px;
+    }
+
+    #dashboard{
+        font-size: 24px;
+
+    }
+    
+    .select-wrapper {
+        min-width: 168px;
+    }
+    
+    select {
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .select-wrapper::after {
+        font-size: 16px;
+    }
+
+    .cards-flexbox {
+        margin-inline: 70px;
+        grid-row-gap: 24px;
+        height: calc(100vh - (183px));
+        grid-column-gap: 32px;
+    }
+    
 }

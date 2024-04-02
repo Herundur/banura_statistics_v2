@@ -4,12 +4,9 @@ const horizontalBarGradient = ctxChannelRangliste.getContext("2d").createLinearG
 horizontalBarGradient.addColorStop(0, "#3f8108");
 horizontalBarGradient.addColorStop(1, "#65d30e");
 
-channel_rangliste_chart_labels = []
-channel_rangliste_chart_values = []
-channel_rangliste_chart.forEach(element => {
-  channel_rangliste_chart_labels.push(element[0]);
-  channel_rangliste_chart_values.push(element[1]);
-});
+let channel_rangliste_chart_formatted = addRankingIcons(channel_rangliste_chart);
+channel_rangliste_chart_labels = channel_rangliste_chart_formatted.labels;
+channel_rangliste_chart_values = channel_rangliste_chart_formatted.values;
 
 const chartChannelRangliste = new Chart(ctxChannelRangliste, {
   type: 'bar',

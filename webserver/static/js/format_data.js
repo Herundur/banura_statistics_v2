@@ -28,3 +28,31 @@ function timespanText(startDate, timespan) {
     }
     return text
 }
+
+function addRankingIcons(array) {
+    const labels = [];
+    const values = [];
+
+    for (let i = 0; i < array.length; i++) {
+        let icon;
+        switch (i + 1) {
+          case 1:
+            icon = "🥇";
+            break;
+          case 2:
+            icon = "🥈";
+            break;
+          case 3:
+            icon = "🥉";
+            break;
+          default:
+            icon = " " + (i + 1) + ".";
+      
+        } 
+        const label = icon + " " + array[i][0];
+        labels.push(label);
+        values.push(array[i][1]);
+    }
+ 
+    return {labels, values};
+}

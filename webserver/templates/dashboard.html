@@ -154,7 +154,21 @@
             </div>
             <script>
                 function responsiveCharts() {
-                    if(window.outerWidth > 999) {
+                    if(window.outerWidth >= 768 && window.outerWidth < 1300) {
+                        chartSpielerRangliste.data.datasets[0].datalabels.font.size = 12;
+                        chartChannelRangliste.data.datasets[0].datalabels.font.size = 12;
+                        chartAktivitätNachWochentage.data.datasets[0].datalabels.font.size = 14;
+                        chartAktivitätNachStunden.data.datasets[0].datalabels.font.size = 12;
+                        chartAktivitätNachStunden.data.datasets[0].datalabels.rotation = 0;
+                        chartAktivitätNachStunden.update();
+                        chartAktivitätNachWochentage.update();
+                        chartNachrichtenProTag.data.datasets[0].borderWidth = 2.5;
+                        chartNachrichtenProTag.data.datasets[0].backgroundColor = getGradient(30, 120)
+                        chartNachrichtenProTag.data.datasets[0].pointBorderWidth = 2;
+                        chartNachrichtenProTag.data.datasets[0].pointHoverRadius = 4;
+                        chartNachrichtenProTag.data.datasets[0].pointRadius = 2;
+                        chartNachrichtenProTag.update()
+                    } else if (window.outerWidth >= 1300) {
                         chartSpielerRangliste.data.datasets[0].datalabels.font.size = 16;
                         chartChannelRangliste.data.datasets[0].datalabels.font.size = 16;
                         chartAktivitätNachWochentage.data.datasets[0].datalabels.font.size = 16;
