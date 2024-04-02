@@ -3,3 +3,4 @@ node_modules
 database/statistics.db
 webserver/webserver_env
 webserver/__pycache__
+webserver/handle_data/__pycache__

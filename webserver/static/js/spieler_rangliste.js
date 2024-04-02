@@ -2,10 +2,32 @@ const ctxSpielerRangliste = document.getElementById('spieler_rangliste');
 
 spieler_rangliste_chart_labels = []
 spieler_rangliste_chart_values = []
+/*
 spieler_rangliste_chart.forEach(element => {
   spieler_rangliste_chart_labels.push(element[0]);
   spieler_rangliste_chart_values.push(element[1]);
 });
+*/
+for (let i = 0; i < spieler_rangliste_chart.length; i++) {
+  let icon;
+  switch (i + 1) {
+    case 1:
+      icon = "🥇";
+      break;
+    case 2:
+      icon = "🥈";
+      break;
+    case 3:
+      icon = "🥉";
+      break;
+    default:
+      icon = " " + (i + 1) + ".";
+
+  } 
+  const label = icon + " " + spieler_rangliste_chart[i][0];
+  spieler_rangliste_chart_labels.push(label);
+  spieler_rangliste_chart_values.push(spieler_rangliste_chart[i][1]);
+}
 
 
 const chartSpielerRangliste = new Chart(ctxSpielerRangliste, {
