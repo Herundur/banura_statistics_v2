@@ -16,7 +16,7 @@
 
   <br>
   
-  ![Website](https://img.shields.io/website?url=https%3A%2F%2Fwww.banura-statistics.pii.at%2Fdashboard%3Fzeitspanne%3DseitBeginn&up_color=%2365cf0f&logo=bookmeter&logoColor=%2365cf0f&label=www.banura-statistics.pii.at)
+  [![Website](https://img.shields.io/website?url=https%3A%2F%2Fwww.banura-statistics.pii.at%2Fdashboard%3Fzeitspanne%3DseitBeginn&up_color=%2365cf0f&logo=bookmeter&logoColor=%2365cf0f&label=www.banura-statistics.pii.at)](https://www.banura-statistics.pii.at/dashboard?zeitspanne=seitBeginn)
   
 </div>
 
